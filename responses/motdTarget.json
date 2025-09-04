@@ -11,24 +11,24 @@
           "body": {
             "ar": "تم الإنشاء بواسطة بورلون، هذا هو خلفية معدلة، جميع حقوق الخلفية الأصلية تذهب إلى لاوين",
             "en": "Modified by Aiu",
-            "de": "Erstellt von AiuBrew, dies ist ein modifiziertes Backend, alle Hauptcredits für das Backend gehen an Lawin",
-            "es": "Creado por AiuBrew, este es un backend modificado, todos los créditos del backend principal van para Lawin",
-            "es-419": "Creado por AiuBrew, este es un backend modificado, todos los créditos del backend principal van para Lawin",
-            "fr": "Créé par AiuBrew, il s'agit d'un backend modifié, tous les crédits du backend principal vont à Lawin",
-            "it": "Creato da AiuBrew, questo è un backend modificato, tutti i crediti del backend principale vanno a Lawin",
-            "ja": "AiuBrewによって作成されました。これは改造されたバックエンドです。すべてのメインバックエンドのクレジットはLawinに帰属します",
+            "de": "Erstellt von AiuBrew, dies ist ein modifiziertes Backend, alle Hauptcredits für das Backend gehen an Lawin, Burlone",
+            "es": "Creado por AiuBrew, este es un backend modificado, todos los créditos del backend principal van para Lawin, Burlone",
+            "es-419": "Creado por AiuBrew, este es un backend modificado, todos los créditos del backend principal van para Lawin, Burlone",
+            "fr": "Créé par AiuBrew, il s'agit d'un backend modifié, tous les crédits du backend principal vont à Lawin, Burlone",
+            "it": "Creato da AiuBrew, questo è un backend modificato, tutti i crediti del backend principale vanno a Lawin, Burlone",
+            "ja": "あいうによって作成されました。これは改造されたバックエンドです。すべてのメインバックエンドのクレジットはLawin, Burloneに帰属します",
             "ko": "AiuBrew이 만든 수정된 백엔드입니다. 모든 주요 백엔드 크레딧은 Lawin에게 있습니다",
-            "pl": "Stworzone przez AiuBrew, to jest zmodyfikowany backend, wszystkie główne zasługi należą do Lawina",
-            "pt-BR": "Criado por AiuBrew, este é um backend modificado, todos os créditos do backend principal vão para Lawin",
-            "ru": "Создано AiuBrew, это модифицированный бэкенд, все основные заслуги за бэкенд принадлежат Lawin",
-            "tr": "AiuBrew tarafından oluşturulmuştur, bu modifiye bir backend'dir, tüm ana backend kredileri Lawin'e aittir"
+            "pl": "Stworzone przez AiuBrew, to jest zmodyfikowany backend, wszystkie główne zasługi należą do Lawina, Burlone",
+            "pt-BR": "Criado por AiuBrew, este é um backend modificado, todos os créditos do backend principal vão para Lawin, Burlone",
+            "ru": "Создано AiuBrew, это модифицированный бэкенд, все основные заслуги за бэкенд принадлежат Lawin, Burlone",
+            "tr": "AiuBrew tarafından oluşturulmuştur, bu modifiye bir backend'dir, tüm ana backend kredileri Lawin'e aittir, Burlone"
           },
           "entryType": "Website",
           "image": [
             {
               "width": 1920,
               "height": 1080,
-              "url": "https://i.imgur.com/ImIwpRm.png"
+              "url": "https://i.imgur.com/KxvTzpQ.png"
             }
           ],
           "tabTitleOverride": "Project Meteor",
@@ -36,7 +36,7 @@
             {
               "width": 1024,
               "height": 512,
-              "url": "https://i.imgur.com/KaJkHgq.png"
+              "url": "https://i.imgur.com/JlZFwQn.png"
             }
           ],
           "title": {

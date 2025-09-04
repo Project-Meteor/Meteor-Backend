@@ -25,7 +25,7 @@ module.exports = {
         .setThumbnail('https://i.imgur.com/yLbihQa.png')
         .setFooter({
             text: "Project Meteor",
-            iconURL: "https://i.imgur.com/2RImwlb.png"
+            iconURL: "https://i.imgur.com/u29w3Xs.png"
         })
         .setColor("WHITE")
     await interaction.editReply({ embeds: [embed], ephemeral: true });

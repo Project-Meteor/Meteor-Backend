@@ -25,10 +25,10 @@ module.exports = {
                 .setDescription("Here is the list of all custom matchmaking codes:")
                 .setColor("GREEN")
                 .setTimestamp()
-                .setThumbnail("https://i.imgur.com/2RImwlb.png")
+                .setThumbnail("https://i.imgur.com/u29w3Xs.png")
                 .setFooter({
                     text: "Project Meteor",
-                    iconURL: "https://i.imgur.com/2RImwlb.png"
+                    iconURL: "https://i.imgur.com/u29w3Xs.png"
                 });
 
             codes.forEach(code => {

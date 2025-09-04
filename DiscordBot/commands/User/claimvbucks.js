@@ -66,7 +66,7 @@ module.exports = {
                 .setColor("#1eff00")
                 .setFooter({
                     text: "Project Meteor",
-                    iconURL: "https://i.imgur.com/2RImwlb.png"
+                    iconURL: "https://i.imgur.com/u29w3Xs.png"
                 });
 
             await interaction.followUp({

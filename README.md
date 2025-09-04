@@ -1,6 +1,6 @@
 # Project Meteor
 
-![Imgur](https://i.imgur.com/ImIwpRm.png)
+![Imgur](https://i.imgur.com/KxvTzpQ.png)
 
 Project Meteor is a universal Fortnite private server backend written in [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 

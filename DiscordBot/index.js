@@ -21,10 +21,10 @@ client.once("ready", () => {
                     .setTitle("Backend Online")
                     .setDescription("Project Meteor is now online")
                     .setColor("GREEN")
-                    .setThumbnail("https://i.imgur.com/2RImwlb.png")
+                    .setThumbnail("https://i.imgur.com/u29w3Xs.png")
                     .setFooter({
                         text: "Project Meteor",
-                        iconURL: "https://i.imgur.com/2RImwlb.png",
+                        iconURL: "https://i.imgur.com/u29w3Xs.png",
                     })
                     .setTimestamp();
 

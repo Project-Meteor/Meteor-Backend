@@ -83,7 +83,7 @@ module.exports = {
             .setTimestamp()
             .setFooter({
                 text: "Project Meteor",
-                iconURL: "https://i.imgur.com/2RImwlb.png"
+                iconURL: "https://i.imgur.com/u29w3Xs.png"
             })
 
             if (resp.status >= 400) return interaction.editReply({ embeds: [embed], ephemeral: true });

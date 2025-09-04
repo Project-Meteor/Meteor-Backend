@@ -36,7 +36,7 @@ module.exports = {
         .setTimestamp()
         .setFooter({
             text: "Project Meteor",
-            iconURL: "https://i.imgur.com/2RImwlb.png"
+            iconURL: "https://i.imgur.com/u29w3Xs.png"
         })
 
         interaction.editReply({ content: "Successfully generated an exchange code.", embeds: [embed], ephemeral: true });
