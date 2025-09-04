@@ -403,7 +403,7 @@ async function discordpost(itemShop) {
     }
 
     embeds.push({
-        title: "Reload Item Shop",
+        title: "Meteor Item Shop",
         description: `These are the cosmetics for today!`,
         color: 0x00FF7F,
         fields: [],

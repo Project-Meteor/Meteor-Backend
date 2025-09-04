@@ -1,10 +1,10 @@
-# Reload Backend
+# Project Meteor
 
 ![Imgur](https://i.imgur.com/ImIwpRm.png)
 
-Reload Backend is a universal Fortnite private server backend written in [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+Project Meteor is a universal Fortnite private server backend written in [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-Created by [Burlone](https://github.com/burlone0), This is a modded backend, all main backend credits to [Lawin](https://github.com/Lawin0129)
+Created by [AiuBrew](https://github.com/NA-JPBrew), This is a modded backend, all main backend credits to [Lawin](https://github.com/Lawin0129)
 
 ## Features
 * Locker:
@@ -84,7 +84,7 @@ Created by [Burlone](https://github.com/burlone0), This is a modded backend, all
 - `/additem {user} {cosmeticname}` - The name of the cosmetic you want to give
 - `/create-custom-match-code {code} {ip} {port}` - Create a custom matchmaking code.
 - `/ban {targetUsername}` - Ban a user from the backend by their username.
-- `/createhostaccount` - Creates a host account for Reload Backend.
+- `/createhostaccount` - Creates a host account for Project Meteor.
 - `/createsac {code} {ingame-username}` - Creates a Support A Creator Code.
 - `/custom-match-code-list` - Lists all custom matchmaking codes.
 - `/delete {username}` - Deletes a users account
@@ -95,21 +95,21 @@ Created by [Burlone](https://github.com/burlone0), This is a modded backend, all
 - `/removeitem {user} {cosmeticname}` - Allows you to remove a cosmetic (skin, pickaxe, glider, etc.) from a user
 - `/unban {targetUsername}` - Unban a user from the backend by their username.
 ### How to set up moderators?
-1) Go to **Config/config.json** in the directory you extracted Reload Backend into.
+1) Go to **Config/config.json** in the directory you extracted Project Meteor into.
 2) Open it, you should see a **"moderators"** section in the file.
 3) You have to get your discord id and replace discordId with it.
 4) You can set multiple moderators like this `["discordId","discordId2"]`.
 ### How to setup multiple gameservers
-1) Go to **Config/config.json** in the directory you extracted Reload Backend into.
+1) Go to **Config/config.json** in the directory you extracted Project Meteor into.
 2) Open it, you should see a **"gameServerIP"** section in the file.
 3) To add more gameservers you will have to do it like this `"gameServerIP": ["127.0.0.1:7777:playlist_defaultsolo", "127.0.0.1:7777:playlist_defaultduo"],`
 4) You have now added solos and duos to your matchmaking 
 
-## How to start Reload Backend
+## How to start Project Meteor
 1) Install [NodeJS](https://nodejs.org/en/) and [MongoDB](https://www.mongodb.com/try/download/community).
-2) **Download** and **Extract** Reload Backend to a safe location.
+2) **Download** and **Extract** Project Meteor to a safe location.
 3) Run **"install_packages.bat"** to install all the required modules.
-4) Go to **Config/config.json** in the directory you extracted Reload Backend into.
+4) Go to **Config/config.json** in the directory you extracted Project Meteor into.
 5) Open it, set your discord bot token **(DO NOT SHARE THIS TOKEN)** and **save it**. The discord bot will be used for creating accounts and managing your account (You can disable the discord bot by entering "bUseDiscordBot" to false in "Config/config.json").
 6) Run **"start.bat"**, if there is no errors, it should work.
 7) Use something to redirect the Fortnite servers to **localhost:8080** (Which could be fiddler, ssl bypass that redirects servers, etc...)
@@ -172,8 +172,8 @@ Right now the only tested version is **27.11**, if you test version, have questi
 This **project/backend** is licensed under the **BSD 3-Clause License.**
 
 ## Credits
-Credits have been moved to the **Contributors** section of github. If I forgot to include someone, write to **burlone413** on Discord
+Credits have been moved to the **Contributors** section of github. If I forgot to include someone, write to **AiuBrew** on Discord
 
 ---
 
-**Reload Backend** is under continuous development and there could be errors of any kind, if you want to give advice on what to add and how to improve the project or report any errors you can do so by writing to **burlone413** on Discord
+**Project Meteor** is under continuous development and there could be errors of any kind, if you want to give advice on what to add and how to improve the project or report any errors you can do so by writing to **AiuBrew** on Discord

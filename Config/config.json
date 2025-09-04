@@ -6,7 +6,7 @@
     "bEnableInGamePlayerCount": true
   },
   "mongodb": {
-    "database": "mongodb://127.0.0.1/Reload"
+    "database": "mongodb://127.0.0.1/Meteor"
   },
     "chat": {
         "//": "Disabling global chat can help the server to perform faster as less resources are used.",

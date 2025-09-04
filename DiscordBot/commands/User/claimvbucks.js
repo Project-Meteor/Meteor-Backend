@@ -65,7 +65,7 @@ module.exports = {
                 .setThumbnail("https://i.imgur.com/yLbihQa.png")
                 .setColor("#1eff00")
                 .setFooter({
-                    text: "Reload Backend",
+                    text: "Project Meteor",
                     iconURL: "https://i.imgur.com/2RImwlb.png"
                 });
 

@@ -57,7 +57,7 @@ module.exports = {
                 .setDescription("Successfully removed all skins to the selected account")
                 .setColor("GREEN")
                 .setFooter({
-                    text: "Reload Backend",
+                    text: "Project Meteor",
                     iconURL: "https://i.imgur.com/2RImwlb.png"
                 })
                 .setTimestamp();

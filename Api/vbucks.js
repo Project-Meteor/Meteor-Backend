@@ -7,7 +7,7 @@ const fs = require("fs");
 const uuid = require("uuid");
 const config = JSON.parse(fs.readFileSync("./Config/config.json").toString());
 
-app.get("/api/reload/vbucks", async (req, res) => {
+app.get("/api/Meteor/vbucks", async (req, res) => {
     const { apikey, username, reason } = req.query;
 
     if (!apikey || apikey !== config.Api.bApiKey) {
@@ -67,7 +67,7 @@ app.get("/api/reload/vbucks", async (req, res) => {
                 "fromAccountId": `[Administrator]`,
                 "lootList": lootList,
                 "params": {
-                    "userMessage": `Thanks For Using Reload Backend!`
+                    "userMessage": `Thanks For Using Project Meteor!`
                 },
                 "giftedOn": new Date().toISOString()
             },

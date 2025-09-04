@@ -79,7 +79,7 @@ module.exports = {
             .setDescription(`The account for **${username}** has been **deleted**`)
             .setColor("GREEN")
             .setFooter({
-                text: "Reload Backend",
+                text: "Project Meteor",
                 iconURL: "https://i.imgur.com/2RImwlb.png"
             })
             .setTimestamp();

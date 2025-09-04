@@ -63,7 +63,7 @@ module.exports = {
             .setDescription(`Your account username has been changed to **${username}**.`)
             .setColor("GREEN")
             .setFooter({
-                text: "Reload Backend",
+                text: "Project Meteor",
                 iconURL: "https://i.imgur.com/2RImwlb.png",
             })
             .setTimestamp();

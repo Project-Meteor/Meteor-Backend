@@ -216,7 +216,7 @@ app.post("/account/api/oauth/token", async (req, res) => {
             log.debug("Someone is logging in from a blocked version.");
             return error.createError(
                 "errors.com.epicgames.version_not_supported",
-                "This version is blocked, change bSeasonJoinable or disable bEnableOnlyOneSeasonJoinable on Reload config.", 
+                "This version is blocked, change bSeasonJoinable or disable bEnableOnlyOneSeasonJoinable on Meteor config.", 
                 [], -1, undefined, 400, res
             );
         }
@@ -273,7 +273,7 @@ app.get("/account/api/oauth/verify", verifyToken, (req, res) => {
             log.debug("Someone is logging in from a blocked version.");
             return error.createError(
                 "errors.com.epicgames.version_not_supported",
-                "This version is no longer supported, change bSeasonJoinable or disable bEnableOnlyOneSeasonJoinable on Reload config.", 
+                "This version is no longer supported, change bSeasonJoinable or disable bEnableOnlyOneSeasonJoinable on Meteor config.", 
                 [], -1, undefined, 400, res
             );
         }

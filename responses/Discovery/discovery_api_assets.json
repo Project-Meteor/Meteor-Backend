@@ -108,7 +108,7 @@
               ],
               "PlatformWhitelist": [],
               "SelectionChance": 0.1,
-              "TestName": "Reload"
+              "TestName": "Meteor"
             }
           ],
           "GlobalLinkCodeBlacklist": [],

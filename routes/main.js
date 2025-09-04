@@ -11,7 +11,7 @@ const config = JSON.parse(fs.readFileSync("./Config/config.json").toString());
 
 app.post("/fortnite/api/game/v2/chat/*/*/*/pc", (req, res) => {
     log.debug("POST /fortnite/api/game/v2/chat/*/*/*/pc called");
-    let resp = config.chat.EnableGlobalChat ? { "GlobalChatRooms": [{ "roomName": "reloadbackendglobal" }] } : {};
+    let resp = config.chat.EnableGlobalChat ? { "GlobalChatRooms": [{ "roomName": "Meteorbackendglobal" }] } : {};
 
     res.json(resp);
 });
@@ -38,22 +38,22 @@ app.get("/launcher/api/public/distributionpoints/", (req, res) => {
 app.get("/launcher/api/public/assets/*", async (req, res) => {
     res.json({
         "appName": "FortniteContentBuilds",
-        "labelName": "ReloadBackend",
+        "labelName": "MeteorBackend",
         "buildVersion": "++Fortnite+Release-20.00-CL-19458861-Windows",
         "catalogItemId": "5cb97847cee34581afdbc445400e2f77",
         "expires": "9999-12-31T23:59:59.999Z",
         "items": {
             "MANIFEST": {
-                "signature": "ReloadBackend",
-                "distribution": "https://reloadbackend.ol.epicgames.com/",
-                "path": "Builds/Fortnite/Content/CloudDir/ReloadBackend.manifest",
+                "signature": "MeteorBackend",
+                "distribution": "https://Meteorbackend.ol.epicgames.com/",
+                "path": "Builds/Fortnite/Content/CloudDir/MeteorBackend.manifest",
                 "hash": "55bb954f5596cadbe03693e1c06ca73368d427f3",
                 "additionalDistributions": []
             },
             "CHUNKS": {
-                "signature": "ReloadBackend",
-                "distribution": "https://reloadbackend.ol.epicgames.com/",
-                "path": "Builds/Fortnite/Content/CloudDir/ReloadBackend.manifest",
+                "signature": "MeteorBackend",
+                "distribution": "https://Meteorbackend.ol.epicgames.com/",
+                "path": "Builds/Fortnite/Content/CloudDir/MeteorBackend.manifest",
                 "additionalDistributions": []
             }
         },
@@ -64,7 +64,7 @@ app.get("/launcher/api/public/assets/*", async (req, res) => {
 app.get("/Builds/Fortnite/Content/CloudDir/*.manifest", async (req, res) => {
     res.set("Content-Type", "application/octet-stream")
 
-    const manifest = fs.readFileSync(path.join(__dirname, "..", "responses", "CloudDir", "ReloadBackend.manifest"));
+    const manifest = fs.readFileSync(path.join(__dirname, "..", "responses", "CloudDir", "MeteorBackend.manifest"));
 
     res.status(200).send(manifest).end();
 })
@@ -72,7 +72,7 @@ app.get("/Builds/Fortnite/Content/CloudDir/*.manifest", async (req, res) => {
 app.get("/Builds/Fortnite/Content/CloudDir/*.chunk", async (req, res) => {
     res.set("Content-Type", "application/octet-stream")
 
-    const chunk = fs.readFileSync(path.join(__dirname, "..", "responses", "CloudDir", "ReloadBackend.chunk"));
+    const chunk = fs.readFileSync(path.join(__dirname, "..", "responses", "CloudDir", "MeteorBackend.chunk"));
 
     res.status(200).send(chunk).end();
 })

@@ -1,5 +1,5 @@
 @echo off
-title Reload Backend
+title Project Meteor
 
 :start
 node index.js

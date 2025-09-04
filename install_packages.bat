@@ -1,5 +1,5 @@
 @echo off
-title Reload Backend Package Installer
+title Project Meteor Package Installer
 
 npm i
 npm install express

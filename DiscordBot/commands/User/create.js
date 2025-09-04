@@ -5,7 +5,7 @@ const functions = require("../../../structs/functions.js");
 module.exports = {
     commandInfo: {
         name: "create",
-        description: "Creates an account on Reload Backend.",
+        description: "Creates an account on Project Meteor.",
         options: [
             {
                 name: "email",
@@ -82,7 +82,7 @@ module.exports = {
             })
             .setTimestamp()
             .setFooter({
-                text: "Reload Backend",
+                text: "Project Meteor",
                 iconURL: "https://i.imgur.com/2RImwlb.png"
             })
 

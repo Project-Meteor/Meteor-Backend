@@ -18,36 +18,36 @@ function formatLog(prefixColor, prefix, ...args) {
 function backend(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[32m", "Reload Backend Log", ...args);
+        formatLog("\x1b[32m", "Project Meteor Log", ...args);
     } else {
-        console.log(`\x1b[32mReload Backend Log\x1b[0m: ${msg}`);
+        console.log(`\x1b[32mProject Meteor Log\x1b[0m: ${msg}`);
     }
 }
 
 function bot(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[33m", "Reload Bot Log", ...args);
+        formatLog("\x1b[33m", "Meteor Bot Log", ...args);
     } else {
-        console.log(`\x1b[33mReload Bot Log\x1b[0m: ${msg}`);
+        console.log(`\x1b[33mMeteor Bot Log\x1b[0m: ${msg}`);
     }
 }
 
 function xmpp(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[34m", "Reload Xmpp Log", ...args);
+        formatLog("\x1b[34m", "Meteor Xmpp Log", ...args);
     } else {
-        console.log(`\x1b[34mReload Xmpp Log\x1b[0m: ${msg}`);
+        console.log(`\x1b[34mMeteor Xmpp Log\x1b[0m: ${msg}`);
     }
 }
 
 function error(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[31m", "Reload Error Log", ...args);
+        formatLog("\x1b[31m", "Meteor Error Log", ...args);
     } else {
-        console.log(`\x1b[31mReload Error Log\x1b[0m: ${msg}`);
+        console.log(`\x1b[31mMeteor Error Log\x1b[0m: ${msg}`);
     }
 }
 
@@ -55,9 +55,9 @@ function debug(...args) {
     if (config.bEnableDebugLogs) {
         let msg = args.join(" ");
         if (config.bEnableFormattedLogs) {
-            formatLog("\x1b[35m", "Reload Debug Log", ...args);
+            formatLog("\x1b[35m", "Meteor Debug Log", ...args);
         } else {
-            console.log(`\x1b[35mReload Debug Log\x1b[0m: ${msg}`);
+            console.log(`\x1b[35mMeteor Debug Log\x1b[0m: ${msg}`);
         }
     }
 }
@@ -65,9 +65,9 @@ function debug(...args) {
 function website(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[36m", "Reload Website Log", ...args);
+        formatLog("\x1b[36m", "Meteor Website Log", ...args);
     } else {
-        console.log(`\x1b[36mReload Website Log\x1b[0m: ${msg}`);
+        console.log(`\x1b[36mMeteor Website Log\x1b[0m: ${msg}`);
     }
 }
 
@@ -75,9 +75,9 @@ function AutoRotation(...args) {
     if (config.bEnableAutoRotateDebugLogs) {
         let msg = args.join(" ");
         if (config.bEnableFormattedLogs) {
-            formatLog("\x1b[36m", "Reload AutoRotation Debug Log", ...args);
+            formatLog("\x1b[36m", "Meteor AutoRotation Debug Log", ...args);
         } else {
-            console.log(`\x1b[36mReload AutoRotation Debug Log\x1b[0m: ${msg}`);
+            console.log(`\x1b[36mMeteor AutoRotation Debug Log\x1b[0m: ${msg}`);
         }
     }
 }
@@ -85,18 +85,18 @@ function AutoRotation(...args) {
 function checkforupdate(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[33m", "Reload Update Log", ...args);
+        formatLog("\x1b[33m", "Meteor Update Log", ...args);
     } else {
-        console.log(`\x1b[33mReload Update Log\x1b[0m: ${msg}`);
+        console.log(`\x1b[33mMeteor Update Log\x1b[0m: ${msg}`);
     }
 }
 
 function autobackendrestart(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[92m", "Reload Auto Backend Restart Log", ...args);
+        formatLog("\x1b[92m", "Meteor Auto Backend Restart Log", ...args);
     } else {
-        console.log(`\x1b[92mReload Auto Backend Restart\x1b[0m: ${msg}`);
+        console.log(`\x1b[92mMeteor Auto Backend Restart\x1b[0m: ${msg}`);
     }
 }
 

@@ -57,7 +57,7 @@ module.exports = {
                 .setDescription("Successfully added all skins (Full Locker) to the selected account")
                 .setColor("GREEN")
                 .setFooter({
-                    text: "Reload Backend",
+                    text: "Project Meteor",
                     iconURL: "https://i.imgur.com/2RImwlb.png"
                 })
                 .setTimestamp();

@@ -24,7 +24,7 @@ module.exports = {
         .setTimestamp()
         .setThumbnail('https://i.imgur.com/yLbihQa.png')
         .setFooter({
-            text: "Reload Backend",
+            text: "Project Meteor",
             iconURL: "https://i.imgur.com/2RImwlb.png"
         })
         .setColor("WHITE")

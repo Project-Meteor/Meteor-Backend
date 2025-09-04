@@ -6,7 +6,7 @@ const log = require("../../../structs/log.js");
 module.exports = {
     commandInfo: {
         name: "createhostaccount",
-        description: "Creates a host account for Reload Backend."
+        description: "Creates a host account for Project Meteor."
     },
     execute: async (interaction) => {
         await interaction.deferReply({ ephemeral: true });
@@ -20,7 +20,7 @@ module.exports = {
             });
         }
 
-        const existingHostAccount = await User.findOne({ email: "hostaccount@reloadbackend.com" });
+        const existingHostAccount = await User.findOne({ email: "hostaccount@Meteorbackend.com" });
 
         if (existingHostAccount) {
             return interaction.editReply({
@@ -29,8 +29,8 @@ module.exports = {
             });
         }
 
-        const username = "reloadbackendhostaccount";
-        const email = "hostaccount@reloadbackend.com";
+        const username = "Meteorbackendhostaccount";
+        const email = "hostaccount@Meteorbackend.com";
         const password = generateRandomPassword(12);
 
         try {
@@ -45,7 +45,7 @@ module.exports = {
                     )
                     .setTimestamp()
                     .setFooter({
-                        text: "Reload Backend",
+                        text: "Project Meteor",
                         iconURL: "https://i.imgur.com/2RImwlb.png"
                     });
 

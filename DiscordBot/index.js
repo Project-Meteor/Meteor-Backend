@@ -19,11 +19,11 @@ client.once("ready", () => {
             } else {
                 const embed = new MessageEmbed()
                     .setTitle("Backend Online")
-                    .setDescription("Reload Backend is now online")
+                    .setDescription("Project Meteor is now online")
                     .setColor("GREEN")
                     .setThumbnail("https://i.imgur.com/2RImwlb.png")
                     .setFooter({
-                        text: "Reload Backend",
+                        text: "Project Meteor",
                         iconURL: "https://i.imgur.com/2RImwlb.png",
                     })
                     .setTimestamp();
