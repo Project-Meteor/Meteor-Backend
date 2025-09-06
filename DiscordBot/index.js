@@ -18,8 +18,8 @@ client.once("ready", () => {
                 log.error(`Cannot find the channel with ID ${config.bBackendStatusChannelId}`);
             } else {
                 const embed = new MessageEmbed()
-                    .setTitle("Backend Online")
-                    .setDescription("Project Meteor is now online")
+                    .setTitle("バックエンドがオンラインになりました")
+                    .setDescription("Project Meteorに参加できます！")
                     .setColor("GREEN")
                     .setThumbnail("https://i.imgur.com/u29w3Xs.png")
                     .setFooter({
@@ -38,7 +38,7 @@ client.once("ready", () => {
     if (config.discord.bEnableInGamePlayerCount) {
         function updateBotStatus() {
             if (global.Clients && Array.isArray(global.Clients)) {
-                client.user.setActivity(`${global.Clients.length} player(s)`, { type: "WATCHING" });
+                client.user.setActivity(`${global.Clients.length} 人がMeteorをプレイ中！`, { type: "WATCHING" });
             }
         }
 
@@ -85,7 +85,7 @@ client.on("interactionCreate", async interaction => {
 });
 
 client.on("guildBanAdd", async (ban) => {
-    if (!config.bEnableCrossBans) 
+    if (!config.bEnableCrossBans)
         return;
 
     const memberBan = await ban.fetch();
@@ -120,14 +120,14 @@ client.on("guildBanAdd", async (ban) => {
 });
 
 client.on("guildBanRemove", async (ban) => {
-    if (!config.bEnableCrossBans) 
+    if (!config.bEnableCrossBans)
         return;
 
     if (ban.user.bot)
         return;
 
     const userData = await Users.findOne({ discordId: ban.user.id });
-    
+
     if (userData && userData.banned === true) {
         await userData.updateOne({ $set: { banned: false } });
 
@@ -139,17 +139,40 @@ client.on("guildBanRemove", async (ban) => {
 client.on("error", (err) => {
     console.log("Discord API Error:", err);
 });
-  
+
 process.on("unhandledRejection", (reason, p) => {
     console.log("Unhandled promise rejection:", reason, p);
 });
-  
+
 process.on("uncaughtException", (err, origin) => {
     console.log("Uncaught Exception:", err, origin);
 });
-  
+
 process.on("uncaughtExceptionMonitor", (err, origin) => {
     console.log("Uncaught Exception Monitor:", err, origin);
 });
 
 client.login(config.discord.bot_token);
+
+process.on("exit", ()=> exited());
+process.on("SIGHT", ()=> exited());
+process.on("SIGINT", ()=> exited());
+
+function exited() {
+    const channel = client.channels.cache.get(config.bBackendStatusChannelId);
+    const embed = new MessageEmbed()
+        .setTitle("バックエンドがオフラインになりました")
+        .setDescription("Project Meteorは現在利用できません。")
+        .setColor("RED")
+        .setThumbnail("https://i.imgur.com/u29w3Xs.png")
+        .setFooter({
+            text: "Project Meteor",
+            iconURL: "https://i.imgur.com/u29w3Xs.png",
+        })
+        .setTimestamp();
+
+    channel.send({ embeds: [embed] }).catch(err => {
+        log.error(err);
+    });
+    process.exit(0);
+}

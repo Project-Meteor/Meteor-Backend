@@ -39,13 +39,13 @@ module.exports = {
         const user = await Users.findOne({ discordId: selectedUserId });
 
         if (!user) {
-            return interaction.editReply({ content: "That user does not own an account", ephemeral: true });
+            return interaction.editReply({ content: "そのユーザーはアカウントを持っていません! ", ephemeral: true });
         }
 
         const profile = await Profiles.findOne({ accountId: user.accountId });
 
         if (!profile) {
-            return interaction.editReply({ content: "That user does not own an account", ephemeral: true });
+            return interaction.editReply({ content: "そのユーザーはアカウントを持っていません! ", ephemeral: true });
         }
 
         const cosmeticname = interaction.options.getString('cosmeticname');

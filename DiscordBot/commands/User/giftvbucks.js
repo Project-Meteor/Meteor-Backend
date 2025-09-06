@@ -9,18 +9,18 @@ const cooldowns = new Map();
 module.exports = {
     commandInfo: {
         name: "giftvbucks",
-        description: "Send another user your V-Bucks",
+        description: "V-Bucksを他のユーザーにギフトします。",
         options: [
             {
                 name: 'user',
                 type: 6,
-                description: 'The user you want to gift V-Bucks to',
+                description: '対象のディスプレイネームまたはDiscordユーザーを入力してください。',
                 required: true,
             },
             {
                 name: 'vbucks',
                 type: 3,
-                description: 'The amount of V-Bucks you want to gift',
+                description: 'ギフトするV-Bucksの数を入力してください。',
                 required: true,
             },
         ],
@@ -39,7 +39,7 @@ module.exports = {
                 if (currentTime < expirationTime) {
                     const timeLeft = ((expirationTime - currentTime) / 1000).toFixed(1);
                     return interaction.reply({
-                        content: `You are sending gifts too quickly! Please wait **${timeLeft} seconds** before sending another gift.`,
+                        content: `ギフトしすぎです！ **${timeLeft} 秒** 後にもう一度試してください。`,
                         ephemeral: true
                     });
                 }
@@ -52,32 +52,32 @@ module.exports = {
             const recieveuser = await Users.findOne({ discordId: recieverUserId });
 
             if (!recieveuser) {
-                return interaction.editReply({ content: "That user does not own an account", ephemeral: true });
+                return interaction.editReply({ content: "そのユーザーはアカウントを持っていません! ", ephemeral: true });
             }
 
             if (!sender) {
-                return interaction.editReply({ content: "You do not own an account", ephemeral: true });
+                return interaction.editReply({ content: "あなたはアカウントを持っていません! **登録してから実行してください!**", ephemeral: true });
             }
 
             if (recieveuser.id === sender.id) {
-                return interaction.editReply({ content: "You cannot **gift yourself**", ephemeral: true });
+                return interaction.editReply({ content: "自分にご褒美を送ろうとしているのですか...?", ephemeral: true });
             }
 
             const vbucks = parseInt(interaction.options.getString('vbucks'));
 
             if (isNaN(vbucks)) {
-                return interaction.editReply({ content: "You need to type a **valid number** for **V-Bucks**", ephemeral: true });
+                return interaction.editReply({ content: "V-Bucksの数が正しくありません！", ephemeral: true });
             }
 
             if (vbucks < 0) {
-                return interaction.editReply({ content: "You can't gift **Negative V-Bucks**", ephemeral: true });
+                return interaction.editReply({ content: "V-Bucksを他人から奪わないでください！", ephemeral: true });
             }
 
             const currentuser = await Profiles.findOne({ accountId: sender?.accountId });
             const recieverProfile = await Profiles.findOne({ accountId: recieveuser?.accountId });
 
             if (!currentuser || !recieverProfile) {
-                return interaction.editReply({ content: "Profile failure or account does not exist", ephemeral: true });
+                return interaction.editReply({ content: "そのアカウントは見つかりませんでした。", ephemeral: true });
             }
 
             const senderCommonCore = currentuser.profiles.common_core;
@@ -90,11 +90,11 @@ module.exports = {
             const recievervbucks = recieverCommonCore.items['Currency:MtxPurchased'];
 
             if (!sendervbucks) {
-                return interaction.editReply({ content: "User Profile failure or account does not exist", ephemeral: true });
+                return interaction.editReply({ content: "ユーザー検索に失敗しました", ephemeral: true });
             }
 
             if (!recievervbucks) {
-                return interaction.editReply({ content: "Profile failure or account does not exist", ephemeral: true });
+                return interaction.editReply({ content: "ユーザー検索に失敗しました", ephemeral: true });
             }
 
             sendervbucks.quantity -= vbucks;
@@ -116,7 +116,7 @@ module.exports = {
                     "fromAccountId": sender.accountId,
                     "lootList": lootList,
                     "params": {
-                        "userMessage": `You received a gift from ${sender.username || "Unknown Player"}!`
+                        "userMessage": `${sender.username || "匿名"} からのささやかな贈り物です！`
                     },
                     "giftedOn": new Date().toISOString()
                 },
@@ -162,8 +162,8 @@ module.exports = {
             ];
 
             const embed = new MessageEmbed()
-                .setTitle("Gift Sent!")
-                .setDescription(`Gifted **${vbucks} V-Bucks** to **${recieveuser.username}**`)
+                .setTitle("ギフト完了！")
+                .setDescription(`**${vbucks} V-Bucks** を **${recieveuser.username}** にギフトしました！`)
                 .setThumbnail("https://i.imgur.com/yLbihQa.png")
                 .setColor("GREEN")
                 .setFooter({

@@ -5,13 +5,13 @@ const functions = require("../../../structs/functions.js");
 module.exports = {
     commandInfo: {
         name: "exchange-code",
-        description: "Generates an exchange code for login. (One time use and expires after 5 mins if unused)."
+        description: "ワンタイムパスワードを生成します。",
     },
     execute: async (interaction) => {
         await interaction.deferReply({ ephemeral: true });
 
         const user = await User.findOne({ discordId: interaction.user.id }).lean();
-        if (!user) return interaction.editReply({ content: "You do not have a registered account!", ephemeral: true });
+        if (!user) return interaction.editReply({ content: "あなたはアカウントを持っていません! **登録してから実行してください!**", ephemeral: true });
 
         let exchange_code = functions.MakeID().replace(/-/ig, "");
 
@@ -31,7 +31,7 @@ module.exports = {
         .setColor("#56ff00")
         .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.avatarURL() })
         .setFields(
-            { name: "Exchange Code", value: exchange_code }
+            { name: "エクスチェンジコード", value: exchange_code }
         )
         .setTimestamp()
         .setFooter({

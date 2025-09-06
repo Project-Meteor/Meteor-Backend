@@ -4,12 +4,12 @@ const functions = require("../../../structs/functions.js");
 
 module.exports = {
     commandInfo: {
-        name: "change-email",
-        description: "Allows you to change your email",
+        name: "change-id",
+        description: "idを変更します。",
         options: [
             {
-                name: "email",
-                description: "Your desired email.",
+                name: "id",
+                description: "新しいID。特殊記号や日本語、また空白は利用できません。",
                 required: true,
                 type: 3
             }
@@ -20,10 +20,10 @@ module.exports = {
 
         const user = await Users.findOne({ discordId: interaction.user.id });
         if (!user) {
-            return interaction.editReply({ content: "You are not registered!", ephemeral: true });
+            return interaction.editReply({ content: "あなたはアカウントを持っていません! **登録してから実行してください!**", ephemeral: true });
         }
 
-        const plainEmail = interaction.options.getString('email');
+        const plainEmail = interaction.options.getString('email') + "@meteor.dev";
 
         const emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (!emailFilter.test(plainEmail)) {
@@ -53,8 +53,8 @@ module.exports = {
         }
 
         const embed = new MessageEmbed()
-            .setTitle("Email changed")
-            .setDescription("Your account email has been changed.")
+            .setTitle("Id changed")
+            .setDescription("IDは正常に変更できました。")
             .setColor("GREEN")
             .setFooter({
                 text: "Project Meteor",

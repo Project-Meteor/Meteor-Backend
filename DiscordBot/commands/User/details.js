@@ -5,7 +5,7 @@ const Profiles = require('../../../model/profiles.js');
 module.exports = {
     commandInfo: {
         name: "details",
-        description: "Retrieves your account info."
+        description: "あなたが所持するアカウントの情報を確認します。"
     },
     execute: async (interaction) => {
         await interaction.deferReply({ ephemeral: true });
@@ -13,20 +13,20 @@ module.exports = {
         const user = await User.findOne({ discordId: interaction.user.id }).lean();
         const vbucksamount = await Profiles.findOne({ accountId: user?.accountId });
         const currency = vbucksamount?.profiles.common_core.items["Currency:MtxPurchased"].quantity;
-        if (!user) return interaction.editReply({ content: "You do not have a registered account!", ephemeral: true });
+        if (!user) return interaction.editReply({ content: "あなたはアカウントを持っていません! **登録してから実行してください!**", ephemeral: true });
 
         let onlineStatus = global.Clients.some(i => i.accountId == user.accountId);
 
         let embed = new MessageEmbed()
         .setColor("GREEN")
-        .setDescription("These are your account details")
+        .setDescription("アカウント情報")
         .setFields(
-            { name: 'Username:', value: user.username },
-            { name: 'Email:', value: `${user.email}` },
-            { name: "Online:", value: `${onlineStatus ? "Yes" : "No"}` },
-            { name: "Banned:", value: `${user.banned ? "Yes" : "No"}` },
+            { name: 'ディスプレイネーム:', value: user.username },
+            { name: 'ID(Email):', value: `${user.email}` },
+            { name: "ステータス:", value: `${onlineStatus ? "オンライン" : "オフライン"}` },
+            { name: "バンされているか:", value: `${user.banned ? "バンされています" : "されていません"}` },
             { name: 'V-Bucks:', value: `${currency} V-Bucks` },
-            { name: "Account ID:", value: user.accountId })
+            { name: "AID:", value: user.accountId })
         .setTimestamp()
         .setThumbnail(interaction.user.avatarURL())
         .setFooter({

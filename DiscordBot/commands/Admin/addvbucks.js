@@ -35,7 +35,7 @@ module.exports = {
         const user = await Users.findOne({ discordId: selectedUserId });
 
         if (!user) {
-            return interaction.editReply({ content: "That user does not own an account", ephemeral: true });
+            return interaction.editReply({ content: "そのユーザーはアカウントを持っていません! ", ephemeral: true });
         }
 
         const vbucks = parseInt(interaction.options.getInteger('vbucks'));
@@ -50,7 +50,7 @@ module.exports = {
 
         const updatedProfile = await Profiles.findOneAndUpdate(filter, updateCommonCore, options);
         if (!updatedProfile) {
-            return interaction.editReply({ content: "That user does not own an account", ephemeral: true });
+            return interaction.editReply({ content: "そのユーザーはアカウントを持っていません! ", ephemeral: true });
         }
 
         await Profiles.updateOne(filter, updateProfile0);

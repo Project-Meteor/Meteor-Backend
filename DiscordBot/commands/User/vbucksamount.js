@@ -5,7 +5,7 @@ const Users = require('../../../model/user.js');
 module.exports = {
     commandInfo: {
         name: "vbucksamount",
-        description: "Displays your current V-Bucks balance.",
+        description: "V-Bucksの所持数を確認します",
     },
     execute: async (interaction) => {
 
@@ -16,11 +16,11 @@ module.exports = {
     const currency = vbucksamount?.profiles.common_core.items["Currency:MtxPurchased"].quantity;
     if (!currentuser) 
     {
-        return interaction.editReply({ content: "You are not registered!", ephemeral: true });
+        return interaction.editReply({ content: "あなたはアカウントを持っていません! **登録してから実行してください!**", ephemeral: true });
     }
     const embed = new MessageEmbed()
-        .setTitle("V-Bucks Count:")
-        .setDescription(`You currently have **` + currency + " V-Bucks** in your Account!")
+        .setTitle("V-Bucks 所持数:")
+        .setDescription(`あなたは現在, **` + currency + " V-Bucks** を所持しています！")
         .setTimestamp()
         .setThumbnail('https://i.imgur.com/yLbihQa.png')
         .setFooter({

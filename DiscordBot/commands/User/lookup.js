@@ -4,11 +4,11 @@ const Users = require("../../../model/user.js");
 module.exports = {
     commandInfo: {
         name: "lookup",
-        description: "Search for a Discord user\'s ID by providing their in-game username.",
+        description: "Discordユーザーまたはディスプレイネームでアカウントを検索します。",
         options: [
             {
                 name: "user",
-                description: "Target username.",
+                description: "対象のDiscordユーザーまたはディスプレイネームを入力してください。",
                 required: true,
                 type: 3
             }
@@ -27,7 +27,7 @@ module.exports = {
 
     let embed = new MessageEmbed()
         .setColor("GREEN")
-        .setDescription(`**User Information:**\n- **Discord User:** <@${user.discordId}>\n- **DiscordID:** ${user.discordId}\n- **In-Game Username:** ${user.username}\n- **Banned:** ${user.banned ? "Yes" : "No"}\n- **Online:** ${onlineStatus ? "Yes" : "No"}`)
+        .setDescription(`**ユーザーの情報:**\n- **Discord:** <@${user.discordId}>\n- **ディスプレイネーム:** ${user.username}\n- **バン:** ${user.banned ? "バンされています" : "バンされていません"}\n- **Meteor ステータス:** ${onlineStatus ? "オンライン" : "オフライン"}`)
         .setFooter({
             text: "Project Meteor",
             iconURL: "https://i.imgur.com/u29w3Xs.png"

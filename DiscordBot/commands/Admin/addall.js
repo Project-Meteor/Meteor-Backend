@@ -33,7 +33,7 @@ module.exports = {
         try {
             const targetUser = await Users.findOne({ discordId: selectedUserId });
             if (!targetUser) {
-                return interaction.editReply({ content: "That user does not own an account" });
+                return interaction.editReply({ content: "そのユーザーはアカウントを持っていません! " });
             }
 
             const profile = await Profiles.findOne({ accountId: targetUser.accountId });

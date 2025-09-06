@@ -102,7 +102,7 @@ Created by [AiuBrew](https://github.com/NA-JPBrew), This is a modded backend, al
 ### How to setup multiple gameservers
 1) Go to **Config/config.json** in the directory you extracted Project Meteor into.
 2) Open it, you should see a **"gameServerIP"** section in the file.
-3) To add more gameservers you will have to do it like this `"gameServerIP": ["127.0.0.1:7777:playlist_defaultsolo", "127.0.0.1:7777:playlist_defaultduo"],`
+3) To add more gameservers you will have to do it like this `"gameServerIP": ["26.198.19.181:7777:playlist_defaultsolo", "26.198.19.181:7777:playlist_defaultduo"],`
 4) You have now added solos and duos to your matchmaking 
 
 ## How to start Project Meteor
@@ -137,7 +137,7 @@ class Handlers
                 oSession["x-replywithtunnel"] = "ServerTunnel";
                 return;
             }
-            oSession.fullUrl = "http://127.0.0.1:5000" + oSession.PathAndQuery
+            oSession.fullUrl = "http://26.198.19.181:5000" + oSession.PathAndQuery
         }
         if (oSession.hostname.Contains("epicgames"))
         {
@@ -146,14 +146,14 @@ class Handlers
                 oSession["x-replywithtunnel"] = "ServerTunnel";
                 return;
             }
-            oSession.fullUrl = "http://127.0.0.1:3551" + oSession.PathAndQuery
+            oSession.fullUrl = "http://26.198.19.181:3551" + oSession.PathAndQuery
         }
     }
 }
 ```
 
-if u change **Caldera Service port** modify this string on **fiddler script**: `oSession.fullUrl = "http://127.0.0.1:urport" + oSession.PathAndQuery`
-if u change **Backend port** modify this string on **fiddler script**: `oSession.fullUrl = "http://127.0.0.1:urport" + oSession.PathAndQuery`
+if u change **Caldera Service port** modify this string on **fiddler script**: `oSession.fullUrl = "http://26.198.19.181:urport" + oSession.PathAndQuery`
+if u change **Backend port** modify this string on **fiddler script**: `oSession.fullUrl = "http://26.198.19.181:urport" + oSession.PathAndQuery`
 
 After that go to the build folder **(/FortniteGame/Binaries/Win69)** and create a file with the name **launch.bat** or whatever you prefer and insert this code inside it:
 

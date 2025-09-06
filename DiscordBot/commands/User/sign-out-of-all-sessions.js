@@ -4,13 +4,13 @@ const functions = require("../../../structs/functions.js");
 module.exports = {
     commandInfo: {
         name: "sign-out-of-all-sessions",
-        description: "Signs you out if you have an active session."
+        description: "現在いるセッションからサインアウトします。",
     },
     execute: async (interaction) => {
         await interaction.deferReply({ ephemeral: true });
         
         const targetUser = await User.findOne({ discordId: interaction.user.id }).lean();
-        if (!targetUser) return interaction.editReply({ content: "You do not have a registered account!", ephemeral: true });
+        if (!targetUser) return interaction.editReply({ content: "あなたはアカウントを持っていません! **登録してから実行してください!**", ephemeral: true });
 
         let refreshToken = global.refreshTokens.findIndex(i => i.accountId == targetUser.accountId);
         if (refreshToken != -1) global.refreshTokens.splice(refreshToken, 1);
@@ -26,9 +26,9 @@ module.exports = {
         if (accessToken != -1 || refreshToken != -1) {
             functions.UpdateTokens();
 
-            return interaction.editReply({ content: `Successfully signed out of all sessions!`, ephemeral: true });
+            return interaction.editReply({ content: `すべてのセッションからサインアウトしました！`, ephemeral: true });
         }
         
-        interaction.editReply({ content: `You have no current active sessions.`, ephemeral: true });
+        interaction.editReply({ content: `あなたは現在オフラインなので、有効なセッションがありません。`, ephemeral: true });
     }
 }

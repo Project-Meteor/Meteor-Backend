@@ -20,7 +20,7 @@ module.exports = {
         await interaction.deferReply({ ephemeral: true });
 
         const user = await User.findOne({ discordId: interaction.user.id });
-        if (!user) return interaction.editReply({ content: "You do not have a registered account!", ephemeral: true });
+        if (!user) return interaction.editReply({ content: "あなたはアカウントを持っていません! **登録してから実行してください!**", ephemeral: true });
 
         const plainPassword = interaction.options.get("password").value;
 

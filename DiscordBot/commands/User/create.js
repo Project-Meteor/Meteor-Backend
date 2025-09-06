@@ -5,39 +5,50 @@ const functions = require("../../../structs/functions.js");
 module.exports = {
     commandInfo: {
         name: "create",
-        description: "Creates an account on Project Meteor.",
+        description: "Meteor Accountを作成します！",
         options: [
             {
-                name: "email",
-                description: "Your email.",
+                name: "id",
+                description: "あなたのID。特殊記号や日本語、また空白は利用できません。",
                 required: true,
                 type: 3
             },
             {
                 name: "username",
-                description: "Your username.",
-                required: true,
-                type: 3
-            },
-            {
-                name: "password",
-                description: "Your password.",
+                description: "フォートナイト内のディスプレイネームになります。日本語、特殊記号が利用できます。",
                 required: true,
                 type: 3
             }
+            /*{
+                name: "password",
+                description: "あなたのパスワード。空白は利用できません。",
+                required: true,
+                type: 3
+            }*/
         ],
     },
     execute: async (interaction) => {
+        function generatePassword() {
+            const string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+=';
+            const passwordLength = Math.random() * (25 - 5) + 5;
+            let myPassword = '';
+
+            for (let i = 0; i < passwordLength; i++) {
+                let character = string.charAt(Math.floor(Math.random() * string.length));
+                myPassword += character;
+            }
+            return myPassword;
+        }
         await interaction.deferReply({ ephemeral: true });
 
         const { options } = interaction;
 
         const discordId = interaction.user.id;
-        const email = options.get("email").value;
+        const email = options.get("id").value + "@meteor.dev";
         const username = options.get("username").value;
-        const password = options.get("password").value;
+        const password = generatePassword();
 
-        const plainEmail = options.get('email').value;
+        const plainEmail = options.get('id').value + "@meteor.dev";
         const plainUsername = options.get('username').value;
 
         const existingEmail = await User.findOne({ email: plainEmail });
@@ -68,28 +79,33 @@ module.exports = {
 
         await functions.registerUser(discordId, username, email, password).then(resp => {
             let embed = new MessageEmbed()
-            .setColor(resp.status >= 400 ? "#ff0000" : "#56ff00")
-            .setThumbnail(interaction.user.avatarURL({ format: 'png', dynamic: true, size: 256 }))
-            .addFields({
-                name: "Message",
-                value: "Successfully created an account.",
-            }, {
-                name: "Username",
-                value: username,
-            }, {
-                name: "Discord Tag",
-                value: interaction.user.tag,
-            })
-            .setTimestamp()
-            .setFooter({
-                text: "Project Meteor",
-                iconURL: "https://i.imgur.com/u29w3Xs.png"
-            })
+                .setColor(resp.status >= 400 ? "#ff0000" : "#56ff00")
+                .setThumbnail(interaction.user.avatarURL({ format: 'png', dynamic: true, size: 256 }))
+                .addFields({
+                    name: "Message",
+                    value: "アカウント作成に成功しました！以下のログイン情報を大切に保管してください。",
+                }, 
+                {
+                    name: "Email",
+                    value: plainEmail,
+                },
+                {
+                    name: "ディスプレイネーム",
+                    value: username,
+                }, {
+                    name: "パスワード",
+                    value: `||\`${password}\`|| (クリックして表示)`,
+                })
+                .setTimestamp()
+                .setFooter({
+                    text: "Project Meteor",
+                    iconURL: "https://i.imgur.com/u29w3Xs.png"
+                })
 
             if (resp.status >= 400) return interaction.editReply({ embeds: [embed], ephemeral: true });
 
-            (interaction.channel ? interaction.channel : interaction.user).send({ embeds: [embed] });
-            interaction.editReply({ content: "You successfully created an account!", ephemeral: true });
+            (interaction.channel ? interaction.channel : interaction.user).send({ embeds: [embed], ephemeral: true });
+            interaction.editReply({ content: "アカウント作成に成功しました！ログイン情報は以下にあります", ephemeral: true });
         });
     }
 }
