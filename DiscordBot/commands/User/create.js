@@ -104,8 +104,8 @@ module.exports = {
 
             if (resp.status >= 400) return interaction.editReply({ embeds: [embed], ephemeral: true });
 
-            (interaction.channel ? interaction.channel : interaction.user).send({ embeds: [embed], ephemeral: true });
-            interaction.editReply({ content: "アカウント作成に成功しました！ログイン情報は以下にあります", ephemeral: true });
+            interaction.user.send({ embeds: [embed] });
+            interaction.editReply({ content: "アカウント作成に成功しました！ログイン情報をDMに送信しました。", ephemeral: true });
         });
     }
 }
